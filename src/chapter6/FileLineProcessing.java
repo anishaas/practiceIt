@@ -8,8 +8,9 @@ public class FileLineProcessing {
 	public static void main(String[] args) throws Exception {
 		Scanner input = new Scanner(new File("src/chapter6/poem.txt"));
 		Scanner input2 = new Scanner(new File("src/chapter6/hours.txt"));
-		hoursWorked(input2);
+		echoUppercase(input);
 		System.out.println();
+		hoursWorked(input2);
 	}
 	
 	private static void hoursWorked(Scanner input) {
@@ -23,6 +24,7 @@ public class FileLineProcessing {
 	
 	//method to handle individual lines
 	private static void processLine(String text) {
+		@SuppressWarnings("resource")
 		Scanner data = new Scanner(text);
 		int id = data.nextInt();
 		String name = data.next();
@@ -41,12 +43,4 @@ public class FileLineProcessing {
 			System.out.println(input.nextLine().toUpperCase());
 		}
 	}
-	
-	//attempted token processing, should not work
-	private static void echoUppercaseToken(Scanner input) {
-		while(input.hasNext()) {
-			System.out.println(input.next().toUpperCase() + " ");
-		}
-	}
-
 }
