@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class PrintEntireLine {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args)  throws FileNotFoundException {
 		Scanner sc = new Scanner(System.in);
-		
 		System.out.println("Please enter file name: ");
 		String fileName = sc.nextLine();
 		Scanner input = new Scanner(new File("src/chapter6/" + fileName));
@@ -22,6 +22,13 @@ public class PrintEntireLine {
 		System.out.println();
 		fileOutput();
 		
+	}
+	
+	private void doubleSpace(Scanner input, PrintStream output) {
+	    while(input.hasNextLine()) {
+	        output.println(input.nextLine());
+	        output.println();
+	    }
 	}
 	
 	private static void fileOutput() throws FileNotFoundException {
