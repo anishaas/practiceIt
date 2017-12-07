@@ -9,22 +9,31 @@ public class PrintEntireLine {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args)  throws FileNotFoundException {
+		//printEntireLine
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please enter file name: ");
 		String fileName = sc.nextLine();
 		Scanner input = new Scanner(new File("src/chapter6/" + fileName));
 		printEntireLine(input);
 		
+		//printBox
 		System.out.println();
 		Scanner input2 = new Scanner(new File("src/chapter6/box.txt"));
 		printBox(input2, 14);
 		
+		//fileOutput
 		System.out.println();
 		fileOutput();
 		
+		//doubleSpace
+		Scanner input3 = new Scanner(new File("src/chapter6/poem.txt"));
+		PrintStream output = new PrintStream(System.out);
+		System.out.println();
+		doubleSpace(input3, output);
+		
 	}
 	
-	private void doubleSpace(Scanner input, PrintStream output) {
+	private static void doubleSpace(Scanner input, PrintStream output) {
 	    while(input.hasNextLine()) {
 	        output.println(input.nextLine());
 	        output.println();
@@ -45,7 +54,6 @@ public class PrintEntireLine {
 		}
 	}
 	
-	@SuppressWarnings("resource")
 	public static void printBox(Scanner input, int width) {
 		//print top border
 		printBorder(width);
