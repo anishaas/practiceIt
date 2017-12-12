@@ -17,7 +17,7 @@ public class Range {
 	private static int range(int[] a1) {
 		int min = a1[0]; 
 		int max = a1[0]; 
-		for(int i = 1; i < a1.length - 1; i++) {
+		for(int i = 1; i < a1.length; i++) {
 			if(a1[i] < min) {
 				min = a1[i];
 			} else if(a1[i] > max) {
@@ -25,6 +25,16 @@ public class Range {
 			}
 		}
 		return (max - min) + 1;
+	}
+	
+	public int countInRange(int[] arr, int min, int max) {
+	    int numBeyond = 0;
+	    for(int i = 0; i < arr.length; i++) {
+	        if(arr[i] < min || arr[i] > max) {
+	            numBeyond++;
+	        }
+	    }
+	    return (arr.length - numBeyond);
 	}
 
 }
