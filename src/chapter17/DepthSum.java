@@ -7,6 +7,18 @@ import chapter17.IntTree.IntTreeNode;
 
 public class DepthSum {
 	
+	public int depthSum(IntTreeNode overallRoot) { 
+	    int level = 1;
+	    return depthSumDFS(overallRoot, level);
+	} 
+
+	private int depthSumDFS(IntTreeNode node, int level) {
+		if(node == null) { 
+	        return 0;
+	    }
+	    return level * node.data + depthSumDFS(node.left, level + 1) + depthSumDFS(node.right, level + 1); 
+	}
+	
 	private int depthSumBFS(IntTree tree) {
 		HashMap<Integer, ArrayList<IntTreeNode>> tracker = new HashMap(); 
 		ArrayList<IntTreeNode> vals = new ArrayList<IntTreeNode>();
@@ -39,6 +51,5 @@ public class DepthSum {
 		}	
 		return result; 
 	}
-	        
-	    
+	
 }
